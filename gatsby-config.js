@@ -40,11 +40,11 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Absurd`,
-        short_name: `absurd`,
+        name: `Natalia Perez`,
+        short_name: `nperez`,
         start_url: `/`,
-        background_color: `#8bd8ed`,
-        theme_color: `#8bd8ed`,
+        background_color: `#d8d8d8`,
+        theme_color: `#d8d8d8`,
         display: `minimal-ui`,
         icon: `static/favicon.svg`,
       },
