@@ -2,20 +2,17 @@ import React from 'react';
 import Helmet from 'react-helmet';
 
 const SEO_DATA = {
-  description: 'An absurd gatsby starter',
-  title: 'Absurd',
-  url: '',
-  author: 'ajayns',
-  keywords: ['gatsby', 'site', 'absurd'],
-  img: '',
-  twitterId: '@ajayns_',
-  facebookId: '',
+  description: 'Abogada egresada del Colegio Mayor de Nuestra Señora del Rosario, Magister en Derecho con énfasis en Derecho Privado, de la misma Universidad. Cuento con experiencia en áreas de Derecho Corporativo, Comercial, Societario, Contractual y del Consumidor',
+  title: 'Pérez Mancera Abogados',
+  url: 'https://nataliaperezm.com/',
+  author: 'Natalia Pérez',
+  keywords: ['derecho', 'corporativo', 'contractual'],
+  img: 'https://nataliaperezm.com/static/7a733f207c01197d588ab9dfcbbfb72a/89f4f/natalia.jpg',
 };
 
 const SEO = () => {
   return (
     <Helmet>
-      <meta property="fb:app_id" content={SEO_DATA.facebookId} />
       <meta property="og:title" content={SEO_DATA.title} />
       <meta property="og:type" content="website" />
       <meta property="og:url" content={SEO_DATA.url} />
@@ -23,7 +20,6 @@ const SEO = () => {
       <meta property="og:description" content={SEO_DATA.description} />
 
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:creator" content={SEO_DATA.twitterId} />
       <meta name="twitter:site" content={SEO_DATA.url} />
       <meta name="twitter:title" content={SEO_DATA.title} />
       <meta name="twitter:description" content={SEO_DATA.description} />
