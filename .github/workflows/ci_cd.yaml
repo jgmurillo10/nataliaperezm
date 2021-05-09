@@ -20,6 +20,8 @@ jobs:
           node-version: '14'
       - name: Install packages
         run: npm install
+      - name: Install gatsby
+        run: npm i -g gatsby
       - name: Build
         run: gatsby build
       - name: Create CNAME
