@@ -36,7 +36,7 @@ const Header = () => (
                 Pérez Mancera
               </h1>
               <h2>
-              Abogada - Candidata a Magister en Derecho Privado
+              Abogada - Magister en Derecho Privado
               </h2>
               <br />
               <p>
