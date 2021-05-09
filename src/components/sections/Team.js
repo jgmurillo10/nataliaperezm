@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { StaticQuery, Link, graphql } from 'gatsby';
-import Img from 'gatsby-image';
 
 import { Section, Container } from '@components/global';
 
@@ -91,10 +90,10 @@ const Team = () => (
             })}
           </TeamGrid>
           <Art>
-            <img src={data.image_general.publicURL} />
+            <img src={data.image_general.publicURL} alt=""/>
           </Art>
           <ArtMobile>
-            <img src={data.image_general.publicURL} />
+            <img src={data.image_general.publicURL} alt=""/>
           </ArtMobile>
         </Container>
       </Section>
@@ -126,7 +125,7 @@ const TeamGrid = styled.div`
   }
 
   @media (max-width: ${props => props.theme.screen.xs}) {
-    grid-gap: 24px;
+    grid-gap: 32px;
     
     > a:first-child {
       grid-column: span 1;
@@ -135,6 +134,7 @@ const TeamGrid = styled.div`
 `;
 
 const ServiceImage = styled.img`
+  display: block;
   max-height: 215px;
   object-fit: cover;
   width: 100%;
@@ -169,7 +169,7 @@ const ArtMobile = styled.figure`
 `;
 
 const Title = styled.p`
-  margin-top: 16px;
+  margin-top: 8px;
   color: ${props => props.theme.color.black.regular};
 `;
 

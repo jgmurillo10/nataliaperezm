@@ -1,20 +1,14 @@
 import React, {useState} from 'react';
 import { Section, Container } from '@components/global';
 import emailjs from 'emailjs-com';
-import Layout from '@common/Layout';
-import Navbar from '@common/Navbar';
-import Footer from '@sections/Footer';
 import styled from 'styled-components';
 
-const API = "https://us-central1-natalia-perez.cloudfunctions.net/sendMail?";
 const Contact = () => {
   const [success, setSuccess] = useState(false);
   const [status, setStatus] = useState("");
   const [name, setName] = useState("");
-  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const createURL = () => ( API + `dest=juanchomurcas@gmail.com&name=${name}&lastName=${lastName}&email=${email}&message=${message}`);
   const handleSubmit = (e) => {
     setStatus("");
     e.preventDefault();
@@ -50,8 +44,6 @@ const Contact = () => {
     </Section>
   )
 };
-
-
 
 const ErrorMessage = styled.p`
   margin-top: 12px;

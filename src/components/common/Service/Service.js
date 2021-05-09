@@ -28,7 +28,7 @@ const Service = ({ image, children }) => (
             <Art>
               <img src={data.allFile.edges.find(
                 ({ node }) => node.relativePath === image
-              ).node.publicURL} />
+              ).node.publicURL} alt=""/>
             </Art>
           </Grid>
         </Container>
