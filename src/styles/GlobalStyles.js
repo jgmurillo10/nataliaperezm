@@ -32,9 +32,13 @@ const GlobalStyles = createGlobalStyle`
     ${props => props.theme.font_size.large};
   }
 
-  p, label {
+  p, label, li {
     ${props => props.theme.font_size.regular};
     color: ${props => props.theme.color.black.light};
+  }
+
+  p:not(:last-child) ,li:not(:last-child) {
+    margin-top: 8px;
   }
 
   @media (max-width: ${props => props.theme.screen.sm}) {

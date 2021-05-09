@@ -13,7 +13,7 @@ const ServicePage = ({ children }) => (
       query {
         banner: file(
           sourceInstanceName: { eq: "personal" }
-          name: { eq: "library2" }
+          name: { eq: "sign" }
         ) {
           publicURL
         }

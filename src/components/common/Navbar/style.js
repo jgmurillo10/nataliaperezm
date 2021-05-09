@@ -58,6 +58,10 @@ export const NavItem = styled.li`
   }
 `;
 
+export const NavItemThird = styled(NavItem)`
+  padding-left: 12px;
+`;
+
 export const MobileMenu = styled.div`
   width: 100%;
   background: ${props => props.theme.color.primary};

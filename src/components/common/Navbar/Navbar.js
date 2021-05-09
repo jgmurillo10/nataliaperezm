@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import AnchorLink from 'react-anchor-link-smooth-scroll';
-import Scrollspy from 'react-scrollspy';
 import { Link } from 'gatsby';
 
 import { Container } from '@components/global';
 import {
   Nav,
   NavItem,
+  NavItemThird,
   Brand,
   StyledContainer,
   NavListWrapper,
@@ -16,14 +15,56 @@ import {
 
 import { ReactComponent as MenuIcon } from '@static/icons/menu.svg';
 
-const NAV_ITEMS = ['Gestión asuntos corporativos', 'Derecho contractual', 'Derecho laboral', 'Derecho inmobiliario', 'Derecho de familia', 'Contacto'];
+const NAV_ITEMS = [
+  {
+    label: 'Inicio',
+    url: '/'
+  },
+  {
+    label: 'Servicios',
+    url: '/#servicios',
+    children: [
+      {
+        label: 'Gestión asuntos corporativos',
+        url: '/servicios/gestion-asuntos-corporativos'
+      },
+      {
+        label: 'Derecho contractual',
+        url: '/servicios/derecho-contractual'
+      },
+      {
+        label: 'Derecho laboral',
+        url: '/servicios/derecho-laboral'
+      },
+      {
+        label: 'Derecho inmobiliario',
+        url: '/servicios/derecho-inmobiliario'
+      },
+      {
+        label: 'Derecho de familia',
+        url: '/servicios/derecho-de-familia'
+      },
+    ],
+  },
+  {
+    label: 'Contacto',
+    url: '/contacto',
+  },
+];
+// const NAV_ITEMS = ['Gestión asuntos corporativos', 'Derecho contractual', 'Derecho laboral', 'Derecho inmobiliario', 'Derecho de familia', 'Contacto', [
+//   'mundo', 'holis'
+// ]];
 const URLS = [
   '/servicios/gestion-asuntos-corporativos',
   '/servicios/derecho-contractual',
   '/servicios/derecho-laboral',
   '/servicios/derecho-inmobiliario',
   '/servicios/derecho-de-familia',
-  '/contacto',
+  '/contacto', 
+  [
+    '/contacto',
+    '/servicios/derecho-laboral'
+  ],
 ]
 class Navbar extends Component {
   state = {
@@ -40,24 +81,28 @@ class Navbar extends Component {
     }
   };
 
-  getNavAnchorLink = (item, index) => (
-    <Link to={URLS[index]} onClick={this.closeMobileMenu}>
-      {item}
+  getNavAnchorLink = (label, url) => (
+    <Link to={url} onClick={this.closeMobileMenu}>
+      {label}
     </Link>
   );
 
   getNavList = ({ mobile = false }) => (
     <NavListWrapper mobile={mobile}>
-      <Scrollspy
-        items={NAV_ITEMS.map(item => item.toLowerCase().replace(' ','-'))}
-        currentClassName="active"
-        mobile={mobile}
-        offset={-64}
-      >
-        {NAV_ITEMS.map((navItem, index) => (
-          <NavItem key={navItem}>{this.getNavAnchorLink(navItem, index)}</NavItem>
+      <ul>
+        {NAV_ITEMS.map(({label, url, children}) => (
+          children ? 
+          <>
+            <NavItem key={label}>{this.getNavAnchorLink(label, url)}</NavItem>
+            {children.map(({label, url}) => (
+                <NavItemThird key={label}>{this.getNavAnchorLink(label, url)}</NavItemThird>
+            ))}
+          </>
+            
+          : 
+          <NavItem key={label}>{this.getNavAnchorLink(label, url)}</NavItem>
         ))}
-      </Scrollspy>
+      </ul>
     </NavListWrapper>
   );
 

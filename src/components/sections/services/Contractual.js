@@ -9,7 +9,7 @@ const ContractualService = () => (
       <p>Nuestros servicios incluyen:</p>
       <ul>
         <li>Estructuración y elaboración de contratos, con el fin de estipular las condiciones ideales para el negocio pretendido por el cliente.</li>
-        <li>Acompañamiento en la redacción, negociación y revisión de contratos, para evitar y prevenir riesgos y conflictos futuros, relacionados con el objeto contractual.</li>
+        <li>Acompañamiento en la redacción, negociación y revisión de contratos, para evitar y prevenir riesgos y conflictos futuros, relacionados con el objeto contractual y demás cláusulas.</li>
       </ul>
     </div>
   </Service>
