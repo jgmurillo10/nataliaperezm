@@ -9,6 +9,7 @@ export const Nav = styled.nav`
   width: 100%;
   top: 0;
   z-index: 1000;
+  box-shadow: 0 3px 28px 0 rgb(0 0 0 / 20%)
 `;
 
 export const StyledContainer = styled(Container)`

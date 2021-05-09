@@ -1,40 +1,35 @@
 import React from 'react';
 import styled from 'styled-components';
-import { StaticQuery, graphql } from 'gatsby';
+import { StaticQuery, Link, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 
 import { Section, Container } from '@components/global';
 
 const TEAM = [
   {
-    name: 'Josh Peck',
-    image: 'josh.jpg',
-    role: 'Founder',
+    name: 'Gestión en asuntos corporativos',
+    image: 'corporativo.jpeg',
+    url: '/servicios/gestion-asuntos-corporativos',
   },
   {
-    name: 'Lisa Haydon',
-    image: 'lisa.jpg',
-    role: 'Art Director',
+    name: 'Derecho contractual',
+    image: 'contractual.jpeg',
+    url: '/servicios/derecho-contractual',
   },
   {
-    name: 'Ashlyn Harris',
-    image: 'ashlyn.jpg',
-    role: 'Frontend Engineer',
+    name: 'Derecho laboral',
+    image: 'laboral.jpeg',
+    url: '/servicios/derecho-laboral',
   },
   {
-    name: 'Todd Joseph',
-    image: 'todd.jpg',
-    role: 'Designer',
+    name: 'Derecho inmobiliario',
+    image: 'inmobiliario.jpeg',
+    url: '/servicios/derecho-inmobiliario',
   },
   {
-    name: 'Martin White',
-    image: 'martin.jpg',
-    role: 'Backend Engineer',
-  },
-  {
-    name: 'Rose Leslie',
-    image: 'rose.jpg',
-    role: 'Marketing',
+    name: 'Derecho de familia',
+    image: 'familia.jpeg',
+    url: '/servicios/derecho-de-familia',
   },
 ];
 
@@ -42,18 +37,21 @@ const Team = () => (
   <StaticQuery
     query={graphql`
       query {
-        allFile(filter: { sourceInstanceName: { eq: "team" } }) {
+        allFile(filter: { sourceInstanceName: { eq: "personal" } }) {
           edges {
             node {
               relativePath
-              childImageSharp {
-                fluid(maxWidth: 400, maxHeight: 400) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
+              publicURL
             }
           }
         }
+        image_general: file(
+          sourceInstanceName: { eq: "personal" }
+          name: { eq: "general" }
+        ) {
+          publicURL
+        }
+        
         art_team: file(
           sourceInstanceName: { eq: "art" }
           name: { eq: "team_work" }
@@ -67,44 +65,56 @@ const Team = () => (
       }
     `}
     render={data => (
-      <Section id="team" accent="secondary">
+      <>
+      <Section id="about">
+        <Container>
+          <div>
+            <p>Abogada egresada del Colegio Mayor de Nuestra Señora del Rosario, Magister en Derecho con énfasis en Derecho Privado, de la misma Universidad. Cuento con experiencia en áreas de Derecho Corporativo, Comercial, Societario, Contractual y del Consumidor.</p>
+          </div>
+        </Container>
+      </Section>
+      <Section id="servicios" accent="secondary">
         <Container style={{ position: 'relative' }}>
-          <h1>The Team</h1>
+          <h1>Servicios</h1>
           <TeamGrid>
-            {TEAM.map(({ name, image, role }) => {
+            {TEAM.map(({ name, image, url }) => {
               const img = data.allFile.edges.find(
                 ({ node }) => node.relativePath === image
               ).node;
 
               return (
-                <div key={name}>
-                  <Img fluid={img.childImageSharp.fluid} alt={name} />
+                <Link key={name} to={url} style={{textDecoration: 'none'}}>
+                  <ServiceImage src={img.publicURL} alt=""/>
                   <Title>{name}</Title>
-                  <Subtitle>{role}</Subtitle>
-                </div>
+                </Link>
               );
             })}
           </TeamGrid>
           <Art>
-            <Img fluid={data.art_team.childImageSharp.fluid} />
+            <img src={data.image_general.publicURL} />
           </Art>
           <ArtMobile>
-            <Img fluid={data.art_team.childImageSharp.fluid} />
+            <img src={data.image_general.publicURL} />
           </ArtMobile>
         </Container>
       </Section>
+      </>
     )}
   />
 );
 
 const TeamGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, 200px);
+  grid-template-columns: repeat(2, 1fr);
   grid-template-rows: min-content;
   grid-gap: 50px;
   justify-content: space-between;
   width: 60%;
   margin-top: 72px;
+
+  > a:first-child {
+    grid-column: span 2;
+  }
 
   @media (max-width: ${props => props.theme.screen.lg}) {
     justify-content: start;
@@ -112,16 +122,26 @@ const TeamGrid = styled.div`
 
   @media (max-width: ${props => props.theme.screen.md}) {
     width: 100%;
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
   }
 
   @media (max-width: ${props => props.theme.screen.xs}) {
     grid-gap: 24px;
+    
+    > a:first-child {
+      grid-column: span 1;
+    }
   }
 `;
 
+const ServiceImage = styled.img`
+  max-height: 215px;
+  object-fit: cover;
+  width: 100%;
+`;
+
 const Art = styled.figure`
-  width: 800px;
+  width: 540px;
   margin: -80px 0;
   position: absolute;
   top: 0;
@@ -151,11 +171,6 @@ const ArtMobile = styled.figure`
 const Title = styled.p`
   margin-top: 16px;
   color: ${props => props.theme.color.black.regular};
-`;
-
-const Subtitle = styled.p`
-  ${props => props.theme.font_size.small};
-  color: ${props => props.theme.color.black.light};
 `;
 
 export default Team;

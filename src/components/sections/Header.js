@@ -1,10 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import { StaticQuery, graphql } from 'gatsby';
+import { StaticQuery, graphql, Link } from 'gatsby';
 import Img from 'gatsby-image';
 
 import { Container } from '@components/global';
-import ExternalLink from '@common/ExternalLink';
 
 const Header = () => (
   <StaticQuery
@@ -40,9 +39,9 @@ const Header = () => (
               </h2>
               <br />
               <p>
-                <StyledExternalLink href="https://api.whatsapp.com/send?phone=573107647755&text=Hola">
+                <StyledLink to="/contacto">
                   Contactar &nbsp;&#x2794;
-                </StyledExternalLink>
+                </StyledLink>
               </p>
             </Text>
           </Grid>
@@ -99,7 +98,7 @@ const Text = styled.div`
   }
 `;
 
-const StyledExternalLink = styled(ExternalLink)`
+const StyledLink = styled(Link)`
   color: inherit;
   text-decoration: none;
 

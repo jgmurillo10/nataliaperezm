@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 import Scrollspy from 'react-scrollspy';
+import { Link } from 'gatsby';
 
 import { Container } from '@components/global';
 import {
@@ -15,8 +16,15 @@ import {
 
 import { ReactComponent as MenuIcon } from '@static/icons/menu.svg';
 
-const NAV_ITEMS = ['Servicios'];
-
+const NAV_ITEMS = ['Gestión asuntos corporativos', 'Derecho contractual', 'Derecho laboral', 'Derecho inmobiliario', 'Derecho de familia', 'Contacto'];
+const URLS = [
+  '/servicios/gestion-asuntos-corporativos',
+  '/servicios/derecho-contractual',
+  '/servicios/derecho-laboral',
+  '/servicios/derecho-inmobiliario',
+  '/servicios/derecho-de-familia',
+  '/contacto',
+]
 class Navbar extends Component {
   state = {
     mobileMenuOpen: false,
@@ -32,10 +40,10 @@ class Navbar extends Component {
     }
   };
 
-  getNavAnchorLink = item => (
-    <AnchorLink href={`#${item.toLowerCase().replace(' ','-')}`} onClick={this.closeMobileMenu}>
+  getNavAnchorLink = (item, index) => (
+    <Link to={URLS[index]} onClick={this.closeMobileMenu}>
       {item}
-    </AnchorLink>
+    </Link>
   );
 
   getNavList = ({ mobile = false }) => (
@@ -46,8 +54,8 @@ class Navbar extends Component {
         mobile={mobile}
         offset={-64}
       >
-        {NAV_ITEMS.map(navItem => (
-          <NavItem key={navItem}>{this.getNavAnchorLink(navItem)}</NavItem>
+        {NAV_ITEMS.map((navItem, index) => (
+          <NavItem key={navItem}>{this.getNavAnchorLink(navItem, index)}</NavItem>
         ))}
       </Scrollspy>
     </NavListWrapper>
@@ -59,22 +67,22 @@ class Navbar extends Component {
     return (
       <Nav {...this.props}>
         <StyledContainer>
-          <Brand>Pérez Mancera Abogados</Brand>
-          <Mobile>
+          <Link to="/" style={{textDecoration: 'none', color: 'black'}}><Brand>Pérez Mancera Abogados</Brand></Link>
+          {/* <Mobile> */}
             <button onClick={this.toggleMobileMenu} style={{ color: 'black' }}>
               <MenuIcon />
             </button>
-          </Mobile>
+          {/* </Mobile> */}
 
-          <Mobile hide>{this.getNavList({})}</Mobile>
+          {/* <Mobile hide>{this.getNavList({})}</Mobile> */}
         </StyledContainer>
-        <Mobile>
+        {/* <Mobile> */}
           {mobileMenuOpen && (
             <MobileMenu>
               <Container>{this.getNavList({ mobile: true })}</Container>
             </MobileMenu>
           )}
-        </Mobile>
+        {/* </Mobile> */}
       </Nav>
     );
   }

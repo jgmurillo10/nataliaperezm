@@ -7,11 +7,11 @@ const normalize = `
 const GlobalStyles = createGlobalStyle`
   ${normalize};
 
-  body {
+  body, label {
     font-family: ${props => props.theme.font.secondary};
   }
 
-  h1, h2, h3, p {
+  h1, h2, h3, p, label {
     margin: 0;
     font-weight: normal;
   }
@@ -32,7 +32,7 @@ const GlobalStyles = createGlobalStyle`
     ${props => props.theme.font_size.large};
   }
 
-  p {
+  p, label {
     ${props => props.theme.font_size.regular};
     color: ${props => props.theme.color.black.light};
   }
@@ -65,6 +65,40 @@ const GlobalStyles = createGlobalStyle`
 
   a {
     cursor: pointer;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  input[type=text], input[type=email], select, textarea {
+    width: 100%; /* Full width */
+    padding: 12px; /* Some padding */ 
+    border: 1px solid #ccc; /* Gray border */
+    border-radius: 4px; /* Rounded borders */
+    box-sizing: border-box; /* Make sure that padding and width stays in place */
+    margin-top: 6px; /* Add a top margin */
+    margin-bottom: 16px; /* Bottom margin */
+    resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+  }
+  
+  /* Style the submit button with a specific background color etc */
+  input[type=submit] {
+    background-color: ${props => props.theme.color.primary};
+    color: black;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* When moving the mouse over the submit button, add a darker green color */
+  input[type=submit]:hover {
+    background-color: ${props => props.theme.color.primary};
+  }
+
+  form {
+    margin-top: 24px;
   }
 `;
 
