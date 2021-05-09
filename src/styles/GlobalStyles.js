@@ -54,7 +54,7 @@ const GlobalStyles = createGlobalStyle`
       ${props => props.theme.font_size.regular};
     }
 
-    p {
+    p, li {
       ${props => props.theme.font_size.small};
     }
   }
