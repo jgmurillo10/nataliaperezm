@@ -8,9 +8,9 @@ const CorporateService = () => (
       <p>Asesoría integral en todos los aspectos relacionados con la familia.</p>
       <p>Nuestros servicios incluyen:</p>
       <ul>
-        <li>Divorcios.</li>
-        <li>Elaboración de capitulaciones matrimoniales.</li>
-        <li>Asesoria y representación en tramites sucesorales.</li>
+        <li><b>Divorcios.</b></li>
+        <li>Elaboración de <b>capitulaciones matrimoniales.</b></li>
+        <li>Asesoria y representación en <b>tramites sucesorales.</b></li>
       </ul>
     </div>
   </Service>
