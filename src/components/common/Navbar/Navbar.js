@@ -67,7 +67,7 @@ class Navbar extends Component {
   };
 
   getNavAnchorLink = (label, url) => (
-    <Link to={url} onClick={this.closeMobileMenu}>
+    <Link to={url} onClick={this.closeMobileMenu} activeStyle={{ borderBottom: "1px solid black" }}>
       {label}
     </Link>
   );

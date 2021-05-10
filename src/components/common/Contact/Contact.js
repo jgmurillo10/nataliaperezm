@@ -9,6 +9,7 @@ const Contact = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [phone, setPhone] = useState();
   const handleSubmit = (e) => {
     setStatus("");
     e.preventDefault();
@@ -32,6 +33,9 @@ const Contact = () => {
           
           <label htmlFor="from_mail">Correo electrónico</label>
           <input type="email" id="from_mail" name="from_mail" placeholder="coco.perez@gmail.com" value={email} onChange={(e) => setEmail(e.target.value)} required/>
+          
+          <label htmlFor="from_phone">Número de teléfono</label>
+          <input type="number" id="from_phone" min={3000000000} max={3999999999} name="from_phone" placeholder="3046993910" value={phone} onChange={(e) => setPhone(e.target.value)} required/>
 
           <label htmlFor="message">Asunto</label>
           <textarea id="message" name="message" placeholder="Necesito asesoría en..." style={{height: 200}} value={message} onChange={(e) => setMessage(e.target.value)} required></textarea>
