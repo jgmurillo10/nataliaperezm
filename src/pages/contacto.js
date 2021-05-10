@@ -5,7 +5,7 @@ import Footer from '@sections/Footer';
 import Contact from '@common/Contact';
 
 const ContactPage = () => (
-  <Layout title="Contacto">
+  <Layout title="Contacto" path="/contacto">
     <Navbar />
     <div style={{marginTop: 48}}></div>
     <Contact />

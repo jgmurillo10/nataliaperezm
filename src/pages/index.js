@@ -7,7 +7,7 @@ import Team from '@sections/Team';
 import Footer from '@sections/Footer';
 
 const IndexPage = () => (
-  <Layout title="Inicio">
+  <Layout title="Inicio" path="/">
     <Navbar />
     <Header />
     <Team />
