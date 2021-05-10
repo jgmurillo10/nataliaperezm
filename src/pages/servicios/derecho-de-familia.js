@@ -4,7 +4,7 @@ import ServicePage from '@common/ServicePage';
 import Family from '@sections/services/Family';
 
 const Page = () => (
-  <ServicePage>
+  <ServicePage title="Derecho de familia">
     <Family/>
   </ServicePage>
 );

@@ -4,7 +4,7 @@ import ServicePage from '@common/ServicePage';
 import Inmobiliario from '@sections/services/Inmobiliario';
 
 const Page = () => (
-  <ServicePage>
+  <ServicePage title="Derecho inmobiliario">
     <Inmobiliario/>
   </ServicePage>
 );

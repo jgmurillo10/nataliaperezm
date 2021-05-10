@@ -4,7 +4,7 @@ import ServicePage from '@common/ServicePage';
 import Corporate from '@sections/services/Corporate';
 
 const CorporatePage = () => (
-  <ServicePage>
+  <ServicePage title="Gestión de asuntos corporativos">
     <Corporate/>
   </ServicePage>
 );

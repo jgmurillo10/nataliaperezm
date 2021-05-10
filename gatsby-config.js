@@ -1,7 +1,11 @@
 const path = require('path');
 
 module.exports = {
+  siteMetadata: {
+    siteUrl: `https://nataliaperezm.com/`,
+  },
   plugins: [
+    `gatsby-plugin-sitemap`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-svgr`,

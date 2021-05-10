@@ -4,7 +4,7 @@ import ServicePage from '@common/ServicePage';
 import Contractual from '@sections/services/Contractual';
 
 const Page = () => (
-  <ServicePage>
+  <ServicePage title="Derecho Contractual">
     <Contractual/>
   </ServicePage>
 );
