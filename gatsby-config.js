@@ -5,6 +5,13 @@ module.exports = {
     siteUrl: `https://nataliaperezm.com/`,
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "272517875",
+        head: false,
+      }
+    },
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-react-helmet`,
     {
