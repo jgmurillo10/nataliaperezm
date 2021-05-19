@@ -10,6 +10,7 @@ module.exports = {
       options: {
         trackingIds: [
           "G-E6XEVKYW3K",
+          "UA-197100185-1",
         ],
       },
     },
