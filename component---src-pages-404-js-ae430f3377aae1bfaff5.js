@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[4],{w2l6:function(n,a,e){"use strict";e.r(a);var t=e("q1tI"),o=e.n(t),i=e("tioU"),c=e("DDoQ"),r=e("Wbzz");a.default=function(){return o.a.createElement(i.a,{title:"Página no encontrada",description:"Esta página no ha sido encontrada"},o.a.createElement(c.a,null,o.a.createElement("h1",null,"Página no encontrada"),o.a.createElement(r.Link,{to:"/"},"Ir al inicio")))}}}]);
+//# sourceMappingURL=component---src-pages-404-js-ae430f3377aae1bfaff5.js.map
