@@ -7,10 +7,10 @@ import SEO from '@common/SEO';
 import theme from '@styles/theme';
 import GlobalStyles from '@styles/GlobalStyles';
 
-const Layout = ({ children, title, path }) => (
+const Layout = ({ children, title, description, path }) => (
   <ThemeProvider theme={theme}>
     <>
-      <SEO title={title} path={path} />
+      <SEO title={title} description={description} path={path} />
       <GlobalStyles />
       {children}
     </>

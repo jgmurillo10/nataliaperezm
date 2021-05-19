@@ -10,7 +10,7 @@ const CorporateService = () => (
       <ul>
         <li><b>Divorcios.</b></li>
         <li>Elaboración de <b>capitulaciones matrimoniales.</b></li>
-        <li>Asesoria y representación en <b>tramites sucesorales.</b></li>
+        <li>Asesoría y representación en <b>trámites sucesorales.</b></li>
       </ul>
     </div>
   </Service>

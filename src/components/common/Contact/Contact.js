@@ -3,7 +3,7 @@ import { Section, Container } from '@components/global';
 import emailjs from 'emailjs-com';
 import styled from 'styled-components';
 
-const Contact = () => {
+const Contact = ({ main }) => {
   const [success, setSuccess] = useState(false);
   const [status, setStatus] = useState("");
   const [name, setName] = useState("");
@@ -13,7 +13,7 @@ const Contact = () => {
   const handleSubmit = (e) => {
     setStatus("");
     e.preventDefault();
-    
+
     emailjs.sendForm('service_r0k1qry', 'template_jlsc5bs', e.target, 'user_V0OlSoRrl1zQsDyIoIFbb')
     .then((result) => {
         setStatus('Mensaje enviado exitosamente.');
@@ -26,14 +26,14 @@ const Contact = () => {
   return (
     <Section>
       <Container>
-        <h2>Contacto</h2>
+        {main ? <h1>Contacto</h1> : <h2>Contacto</h2>}
         <form onSubmit={(e) => handleSubmit(e)}>
           <label htmlFor="fname">Nombres</label>
           <input type="text" id="fname" name="from_name" placeholder="Coco Pérez" value={name} onChange={(e) => setName(e.target.value)} required/>
-          
+
           <label htmlFor="from_mail">Correo electrónico</label>
           <input type="email" id="from_mail" name="from_mail" placeholder="coco.perez@gmail.com" value={email} onChange={(e) => setEmail(e.target.value)} required/>
-          
+
           <label htmlFor="from_phone">Número de teléfono</label>
           <input type="number" id="from_phone" min={3000000000} max={3999999999} name="from_phone" placeholder="3046993910" value={phone} onChange={(e) => setPhone(e.target.value)} required/>
 
@@ -55,4 +55,3 @@ const ErrorMessage = styled.p`
 `;
 
 export default Contact;
-    

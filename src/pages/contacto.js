@@ -5,13 +5,12 @@ import Footer from '@sections/Footer';
 import Contact from '@common/Contact';
 
 const ContactPage = () => (
-  <Layout title="Contacto" path="/contacto">
+  <Layout title="Contacto" path="/contacto" description="Contacta a Natalia Andrea Pérez Mancera para tus dudas legales.">
     <Navbar />
     <div style={{marginTop: 48}}></div>
-    <Contact />
+    <Contact main={true} />
     <Footer />
   </Layout>
 );
 
 export default ContactPage;
-    

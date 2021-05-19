@@ -7,7 +7,7 @@ import Footer from '@sections/Footer';
 import Contact from '@common/Contact';
 import { graphql, StaticQuery } from 'gatsby';
 
-const ServicePage = ({ children, title, path }) => (
+const ServicePage = ({ children, title, description, path }) => (
   <StaticQuery
     query={graphql`
       query {
@@ -20,7 +20,7 @@ const ServicePage = ({ children, title, path }) => (
       }
     `}
     render={data => (
-      <Layout title={title} path={path}>
+      <Layout title={title} description={description} path={path}>
         <Navbar />
         <Banner src={data.banner.publicURL}/>
         { children }
