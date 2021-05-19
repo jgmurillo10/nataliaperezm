@@ -56,6 +56,24 @@ class Navbar extends Component {
     mobileMenuOpen: false,
   };
 
+  handleClickOut (e) {
+    let current = e.target;
+    let isNav = false;
+
+    while(current !== null) {
+      if (current.tagName === "NAV") {
+        isNav = true;
+      }
+      current = current.parentElement;
+    }
+
+    !isNav && this.closeMobileMenu();
+  }
+
+  componentDidMount() {
+    document.addEventListener('click', this.handleClickOut.bind(this), {bubbles: true});
+  }
+
   toggleMobileMenu = () => {
     this.setState(prevState => ({ mobileMenuOpen: !prevState.mobileMenuOpen }));
   };
@@ -76,14 +94,14 @@ class Navbar extends Component {
     <NavListWrapper mobile={mobile}>
       <ul>
         {NAV_ITEMS.map(({label, url, children}) => (
-          children ? 
+          children ?
             <React.Fragment key={label}>
               <NavItem>{this.getNavAnchorLink(label, url)}</NavItem>
               {children.map(({label, url}) => (
                   <NavItemThird key={label}>{this.getNavAnchorLink(label, url)}</NavItemThird>
               ))}
             </React.Fragment>
-          : 
+          :
             <NavItem key={label}>{this.getNavAnchorLink(label, url)}</NavItem>
         ))}
       </ul>

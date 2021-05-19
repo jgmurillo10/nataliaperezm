@@ -33,6 +33,7 @@ const ServicePage = ({ children, title, description, path }) => (
 
 const Banner = styled.img`
   width: 100%;
+  margin-bottom: -48px;
   max-height: 270px;
   object-fit: cover;
 `;
