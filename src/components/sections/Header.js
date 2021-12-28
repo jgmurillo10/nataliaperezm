@@ -11,7 +11,7 @@ const Header = () => (
       query {
         art_build: file(
           sourceInstanceName: { eq: "personal" }
-          name: { eq: "natalia" }
+          name: { eq: "new_natalia" }
         ) {
           childImageSharp {
             fluid(maxWidth: 1400) {
@@ -34,14 +34,10 @@ const Header = () => (
                 <br />
                 Pérez Mancera
               </h1>
-              <h2>
-              Abogada - Magister en Derecho Privado
-              </h2>
+              <h2>Abogada - Magister en Derecho Privado</h2>
               <br />
               <p>
-                <StyledLink to="/contacto">
-                  Contactar &nbsp;&#x2794;
-                </StyledLink>
+                <StyledLink to="/contacto">Contactar &nbsp;&#x2794;</StyledLink>
               </p>
             </Text>
           </Grid>
